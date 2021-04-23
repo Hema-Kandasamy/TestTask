@@ -70,8 +70,15 @@ class HomeView: UIView {
         self.addSubview(contentStackView)
 
         // Random insets given
-        let insets = UIEdgeInsets(top: 40, left: 20, bottom: 20, right: 20)
-        self.addWithInBounds(view: contentStackView, with: insets)
+       // let insets = UIEdgeInsets(top: 40, left: 20, bottom: 20, right: 20)
+       // self.addWithInBounds(view: contentStackView, with: insets)
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(contentStackView)
+        NSLayoutConstraint.activate([contentStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+                                     contentStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                                     contentStackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+                                     contentStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
+                                     contentStackView.heightAnchor.constraint(equalToConstant: 200)])
 
         // This is to align content when we do not want them to fill. We could also set stack view height intead of insets
         let spacerView = UIView()
